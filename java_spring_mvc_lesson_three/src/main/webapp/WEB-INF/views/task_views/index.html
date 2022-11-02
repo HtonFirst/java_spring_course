@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="col-10 mx-auto">
+        <h2>Product List</h2>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${products}">
+                <td scope="row" th:text="${product.id}">1</td>
+                <td scope="row" th:text="${product.name}">1</td>
+                <td scope="row" th:text="${product.description}">1</td>
+                <td scope="row" th:text="${product.price}">1</td>
+                <td>
+                    <a class="btn btn-success" href="#"><i class="fa-sharp fa-solid fa-file-pen"></i></a>
+                    <a class="btn btn-danger" href="#"><i class="fa-solid fa-trash-can"></i></a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+<script src="https://kit.fontawesome.com/0b090bbf64.js" crossorigin="anonymous"></script>
+</body>
+</html>
