@@ -24,13 +24,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="product : ${products}">
+            <tr th:each="product : ${product}">
                 <td scope="row" th:text="${product.id}">1</td>
                 <td scope="row" th:text="${product.name}">1</td>
                 <td scope="row" th:text="${product.description}">1</td>
                 <td scope="row" th:text="${product.price}">1</td>
                 <td>
-                    <a class="btn btn-success" th:href="@{/products/{id}(id=${product.id})}"><i class="fa-sharp fa-solid fa-file-pen"></i></a>
+                    <a class="btn btn-success" th:href="@{/product/{id}(id=${product.id})}"><i class="fa-sharp fa-solid fa-file-pen"></i></a>
                     <a class="btn btn-danger" href="#"><i class="fa-solid fa-trash-can"></i></a>
                 </td>
 

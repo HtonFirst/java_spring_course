@@ -1,7 +1,8 @@
-package com.example.controllers;
+package com.example.java_spring_boot_lesson_four.controllers;
 
-import com.example.model.Product;
-import com.example.model.ProductRepository;
+import com.example.java_spring_boot_lesson_four.entities.Product;
+import com.example.java_spring_boot_lesson_four.repositories.ProductRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,33 +11,37 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-
 @Controller
-@RequestMapping("/products")
-public class TaskController {
+@RequestMapping("/product")
+public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
     @GetMapping
     public String indexPage(Model model) {
 
-        model.addAttribute("products", productRepository.findAll());
-        return  "task_views/index";
+        model.addAttribute("product", productRepository.findAll());
+        return  "product_views/index";
 
     }
 
     @GetMapping("/{id}")
     public String editProduct(@PathVariable(value = "id") Long id, Model model) {
         model.addAttribute("product", productRepository.findById(id));
-        return "task_views/product_form";
+        return "product_views/product_form";
     }
 
     @PostMapping("/product_update")
     public String updateProduct(Product product) {
         productRepository.update(product);
-        return "redirect:/products";
+        return "redirect:/product";
     }
+
+    @GetMapping("/delete")
+    public String removeProduct(Model model) {
+        return "product_views/index";
+    }
+
 
 
 }
